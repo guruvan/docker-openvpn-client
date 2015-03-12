@@ -1,0 +1,11 @@
+*
+!Dockerfile
+!.dockerignore
+!.gitignore
+!LICENSE
+!README.md
+!openvpn-client\@.service
+!run-openvpn-client-cli.sh
+!etc/
+!etc/openvpn/
+!etc/openvpn/update-resolv-conf
