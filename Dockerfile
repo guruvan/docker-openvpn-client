@@ -5,4 +5,4 @@ RUN 		apt-get update \
 		 && apt-get install -y openresolv openvpn \
 		 && apt-get clean
 RUN 		mkdir -p /dev/net && mknod /dev/net/tun c 10 200
-ENTRYPOINT	["/bin/bash"]
+ENTRYPOINT	["/bin/sh"]
