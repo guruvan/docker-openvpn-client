@@ -4,13 +4,11 @@
 !.gitignore
 !LICENSE
 !README.md
-!openvpn-client\@.service
-!run-openvpn-client-cli.sh
+!host-startup/
+!host-startup/openvpn-client\@.service
+!host-startup/run-openvpn-client-cli.sh
 !run_vpn.sh
 !usr/
 !usr/local/
 !usr/local/bin/
 !usr/local/bin/update-resolv-conf.sh
-!etc/
-!etc/openvpn/
-!etc/openvpn/update-resolv-conf
