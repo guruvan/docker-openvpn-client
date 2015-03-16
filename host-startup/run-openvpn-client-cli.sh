@@ -1,10 +1,10 @@
 #!/bin/bash
 DOCKERBIN=$(which docker)
 ${DOCKERBIN} pull mazaclub/openvpn-client
-${DOCKERBIN} run \
+${DOCKERBIN} run -d \
  --privileged \
- --net host \
- --rm \
+ --rm --net host \
  --name openvpn_client \
- -v /etc/openvpn/CLIENT_NAME.ovpn:/etc/openvpn/CLIENT_NAME.ovpn \
+ -v /etc/resolv.conf:/etc/resolv.conf \
+ -v $(pwd)/ovpn:/etc/openvpn \
  mazaclub/openvpn-client

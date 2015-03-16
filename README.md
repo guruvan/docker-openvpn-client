@@ -17,8 +17,12 @@ or -v bindmount a dir to /etc/openvpn
 and you're in business
 
 ```
-    -v $(pwd)/client.ovpn:/etc/openvpn/client.ovpn
+    -v $(pwd)/ovpn:/etc/openvpn
 ```
 
+If you would like the VPN to update the hosts resolv.conf
+```
+   -v /etc/resolv.conf:/etc/resolv.conf
+```
 startup command inside the container will start openpn with your config
 

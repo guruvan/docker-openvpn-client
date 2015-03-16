@@ -12,7 +12,17 @@ RestartSec=10s
 ExecStartPre=-/usr/bin/docker -H unix:///var/run/early-docker.sock kill openvpn_client
 ExecStartPre=-/usr/bin/docker -H unix:///var/run/early-docker.sock rm openvpn_client
 ExecStartPre=/usr/bin/docker -H unix:///var/run/early-docker.sock pull mazaclub/openvpn-client
-ExecStart=/usr/bin/docker -H unix:///var/run/early-docker.sock run --privileged --net host --rm --name mazaclub_vpn mazaclub/openvpn-client
+ExecStart=/usr/bin/docker \
+-H unix:///var/run/early-docker.sock \
+run --rm \
+--privileged \
+--net host \
+--name mazaclub_vpn \
+-v /opt/vpn/clients:/etc/openvpn \
+-v /etc/resolv.conf:/etc/resolv.conf \
+mazaclub/openvpn-client
+
 ExecStartPost=/opt/bin/rc.firewall.vpn
+
 [Install]
 WantedBy=fleet.service flanneld.service
