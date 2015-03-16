@@ -13,7 +13,7 @@
 cat  /etc/resolv.conf > ./resolv-conf.host
 if [  -h /etc/resolv.conf ]
 then
-  rm /etc/resolv.conf
+  sudo rm /etc/resolv.conf
   sudo cp ./resolv-conf.host /etc/resolv.conf
   export SYMRESOLV=true
 fi
@@ -31,8 +31,8 @@ set -x
 
 if [ "$SYMRESOLV" = "true" ]
 then 
-  rm /etc/resolv.conf
-  ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
+  sudo rm /etc/resolv.conf
+  sudo ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
 else
   sudo cp -av ./resolv-conf.host /etc/resolv.conf
 fi
